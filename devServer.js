@@ -40,7 +40,9 @@ app.get('*', function (req, res) {
     } else if (redirectLocation) {
       redirect(redirectLocation, res);
     } else if (renderProps) {
-      renderApp(renderProps, res);
+      const markup = renderToString(<RouterContext {...renderProps} />);
+
+      res.send('Problem!');
     } else {
       writeNotFound(res);
     }
