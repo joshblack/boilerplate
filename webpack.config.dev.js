@@ -1,14 +1,15 @@
 var path = require('path');
 var webpack = require('webpack');
-var babelOptions = require('./resources/babel/babelOptions');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
+var babelOptions = require('./resources/babel/babelOptions').babelClientOptions;
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
 
 module.exports = {
-  // devtool: 'cheap-module-eval-source-map',
+  devtool: 'cheap-module-eval-source-map',
   entry: [
-    // 'eventsource-polyfill', // necessary for hot reloading with IE
-    // 'webpack-hot-middleware/client',
+    'eventsource-polyfill', // necessary for hot reloading with IE
+    'webpack-hot-middleware/client',
     './src/index'
   ],
   output: {
@@ -19,13 +20,12 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: { warnings: false },
-    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       '__DEV__': JSON.stringify(NODE_ENV === 'development')
-    })
+    }),
+    new NpmInstallPlugin({ save: true })
   ],
   module: {
     loaders: [{
@@ -36,3 +36,4 @@ module.exports = {
     }]
   }
 };
+

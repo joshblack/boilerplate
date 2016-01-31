@@ -31,7 +31,7 @@ app.use(require('webpack-dev-middleware')(compiler, {
   publicPath: config.output.publicPath
 }));
 
-// app.use(require('webpack-hot-middleware')(compiler));
+app.use(require('webpack-hot-middleware')(compiler));
 
 app.get('*', function (req, res) {
   match({ routes, location: req.url }, (error, redirectLocation, renderProps) => {
@@ -40,14 +40,28 @@ app.get('*', function (req, res) {
     } else if (redirectLocation) {
       redirect(redirectLocation, res);
     } else if (renderProps) {
-      const markup = renderToString(<RouterContext {...renderProps} />);
-
-      res.send('Problem!');
+      renderApp(renderProps, res);
     } else {
       writeNotFound(res);
     }
   });
 });
+
+// if (__DEV__) {
+  // if (module.hot) {
+    // console.log("[HMR] Waiting for server-side updates");
+
+    // module.hot.accept("containers/routes", () => {
+      // routes = require("containers/routes");
+    // });
+
+    // module.hot.addStatusHandler((status) => {
+      // if (status === "abort") {
+        // setTimeout(() => process.exit(0), 0);
+      // }
+    // });
+  // }
+// }
 
 app.listen(PORT, 'localhost', function(err) {
   if (err) {

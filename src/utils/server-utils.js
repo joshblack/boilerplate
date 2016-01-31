@@ -30,18 +30,16 @@ export function write(string, type, res) {
 }
 
 export function createPage(html) {
-  return `
-  <!doctype html>
-  <html>
-    <head>
-      <meta charset="utf-8"/>
-      <title>My Universal App</title>
-    </head>
-    <body>
-      <div id="root">${html}</div>
-      <script src="/static/main.js"></script>
-    </body>
-  </html>
-  `;
+  return `<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>IBM React Boilerplate</title>
+  </head>
+  <body>
+    <div id="root">${html}</div>
+    <script src="/static/main.js"></script>
+  </body>
+</html>`;
 }
 

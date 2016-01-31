@@ -2,7 +2,7 @@
 
 var babel = require('babel-core');
 var assign = require('object-assign');
-var babelOptions = require('../babel/babelOptions');
+var babelOptions = require('../babel/babelOptions').babelBaseOptions;
 
 module.exports = {
   process: function process(src, filename) {

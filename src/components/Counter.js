@@ -1,10 +1,13 @@
 import React from 'react';
+import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
+
+const { canUseDOM } = ExecutionEnvironment;
 
 export default class Counter extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { counter: 0 };
-    this.interval = setInterval(() => this.tick(), 1000);
   }
 
   tick() {
@@ -13,8 +16,16 @@ export default class Counter extends React.Component {
     });
   }
 
+  componentDidMount() {
+    if (canUseDOM) {
+      this.interval = setInterval(() => this.tick(), 1000);
+    }
+  }
+
   componentWillUnmount() {
-    clearInterval(this.interval);
+    if (canUseDOM) {
+      clearInterval(this.interval);
+    }
   }
 
   render() {
