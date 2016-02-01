@@ -28,12 +28,18 @@ module.exports = {
     new NpmInstallPlugin({ save: true })
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      loader: 'babel',
-      query: babelOptions,
-      include: path.join(__dirname, 'src')
-    }]
+    loaders: [
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        query: babelOptions,
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /actions/,
+        loader: 'null'
+      }
+    ]
   }
 };
 

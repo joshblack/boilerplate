@@ -47,22 +47,6 @@ app.get('*', function (req, res) {
   });
 });
 
-// if (__DEV__) {
-  // if (module.hot) {
-    // console.log("[HMR] Waiting for server-side updates");
-
-    // module.hot.accept("containers/routes", () => {
-      // routes = require("containers/routes");
-    // });
-
-    // module.hot.addStatusHandler((status) => {
-      // if (status === "abort") {
-        // setTimeout(() => process.exit(0), 0);
-      // }
-    // });
-  // }
-// }
-
 app.listen(PORT, 'localhost', function(err) {
   if (err) {
     console.log(err);
