@@ -58,4 +58,3 @@ module.exports = {
     require('postcss-modules-values')
   ]
 };
-

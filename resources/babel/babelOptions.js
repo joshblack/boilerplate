@@ -22,7 +22,7 @@ var babelServerOptions = assign({}, babelBaseOptions, {
         [
           'babel-plugin-webpack-loaders',
           {
-            config: './webpack.config.run.js',
+            config: './resources/webpack/webpack.config.run.js',
             verbose: false
           }
         ]
@@ -38,7 +38,7 @@ var babelTestOptions = assign({}, babelBaseOptions, {
         [
           'babel-plugin-webpack-loaders',
           {
-            config: './webpack.config.run.js',
+            config: './resources/webpack/webpack.config.run.js',
             verbose: false
           }
         ]

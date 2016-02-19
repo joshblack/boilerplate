@@ -3,15 +3,15 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "start:dev": "node index.js",
     "start:prod": "npm run build && node server.bundle.js",
     "build": "npm run build:client && npm run build:server",
+    "build:server": "cross-env NODE_ENV=production webpack --config webpack.config.server.js",
     "build:client": "rimraf static && cross-env NODE_ENV=production webpack --config webpack.config.client.js",
-    "build:server": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack.config.server.js",
-    "start": "node index.js",
-    "lint": "eslint src",
     "test": "NODE_ENV=test jest",
     "test:watch": "NODE_ENV=test jest -w",
-    "test:clean": "NODE_ENV=test rm -rf node_modules/jest-cli/.haste_cache && jest"
+    "test:clean": "NODE_ENV=test rm -rf node_modules/jest-cli/.haste_cache && jest",
+    "lint": "eslint src"
   },
   "repository": {
     "type": "git",
@@ -37,7 +37,6 @@
     "chalk": "^1.1.1",
     "cross-env": "^1.0.6",
     "css-loader": "^0.23.1",
-    "cssnano": "^3.5.2",
     "diff": "^2.2.1",
     "eslint": "^1.10.3",
     "eslint-plugin-babel": "^3.0.0",

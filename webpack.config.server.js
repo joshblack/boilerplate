@@ -27,16 +27,16 @@ module.exports = {
     __dirname: true
   },
   plugins: [
-    // new webpack.optimize.OccurenceOrderPlugin(),
-    // new webpack.NoErrorsPlugin(),
-    // new webpack.optimize.UglifyJsPlugin({
-      // compressor: {
-        // screw_ie8: true
-      // },
-      // output: {
-        // comments: false
-      // }
-    // }),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.NoErrorsPlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        screw_ie8: true
+      },
+      output: {
+        comments: false
+      }
+    }),
     new ExtractTextPlugin('./static/css/[name].css', { allChunks: true })
   ],
   module: {
