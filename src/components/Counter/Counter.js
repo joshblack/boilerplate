@@ -1,5 +1,6 @@
 import React from 'react';
 import ExecutionEnvironment from 'fbjs/lib/ExecutionEnvironment';
+import styles from './Counter.css';
 
 const { canUseDOM } = ExecutionEnvironment;
 
@@ -30,7 +31,7 @@ export default class Counter extends React.Component {
 
   render() {
     return (
-      <h1 style={{ color: this.props.color }}>
+      <h1 className={styles.counter} style={{ color: this.props.color }}>
         Counter ({this.props.increment}): {this.state.counter}
       </h1>
     );

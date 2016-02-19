@@ -15,6 +15,40 @@ var babelClientOptions = assign({}, babelBaseOptions, {
   }
 });
 
+var babelServerOptions = assign({}, babelBaseOptions, {
+  env: {
+    development: {
+      plugins: [
+        [
+          'babel-plugin-webpack-loaders',
+          {
+            config: './webpack.config.run.js',
+            verbose: false
+          }
+        ]
+      ]
+    }
+  }
+});
+
+var babelTestOptions = assign({}, babelBaseOptions, {
+  env: {
+    test: {
+      plugins: [
+        [
+          'babel-plugin-webpack-loaders',
+          {
+            config: './webpack.config.run.js',
+            verbose: false
+          }
+        ]
+      ]
+    }
+  }
+});
+
 exports.babelBaseOptions = babelBaseOptions;
 exports.babelClientOptions = babelClientOptions;
+exports.babelServerOptions = babelServerOptions;
+exports.babelTestOptions = babelTestOptions;
 

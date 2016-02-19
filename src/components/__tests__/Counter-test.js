@@ -1,10 +1,7 @@
-jest.autoMockOff();
-
-// Use `require` versus ES2015 imports to allow for jest mocking to work
-const React = require('react');
-const { default: Counter } = require('../Counter');
-const { testRenderComponent } = require('../../utils/testRenderComponent');
-const { default: assertEqualJSX } = require('../../utils/assertEqualJSX');
+import React from 'react';
+import Counter from '../Counter';
+import assertEqualJSX from '../../utils/assertEqualJSX';
+import { testRenderComponent } from '../../utils/testRenderComponent';
 
 const renderWithProps = testRenderComponent(Counter);
 
@@ -16,7 +13,7 @@ describe('Counter', () => {
     expect(result.props.style).toEqual({ color: 'black' });
 
     assertEqualJSX(result, (
-      <h1 style={{ color: 'black' }}>
+      <h1 className={result.props.className} style={{ color: 'black' }}>
         Counter (1): 0
       </h1>
     ));

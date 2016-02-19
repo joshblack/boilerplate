@@ -1,4 +1,4 @@
-var babelOptions = require('./resources/babel/babelOptions').babelBaseOptions;
+var babelOptions = require('./resources/babel/babelOptions').babelServerOptions;
 
 require('babel-core/register')(babelOptions);
 require('./devServer');
