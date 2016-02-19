@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * This webpack configuration file is used as configuration for the
  * `babel-plugin-webpack-loaders` plugin in order to leverage css modules in

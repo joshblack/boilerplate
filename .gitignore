@@ -1,5 +1,12 @@
-.DS_Store
+# Ignore generated folders
 node_modules
-npm-debug.log
 dist
 lib
+static
+
+# Ignore dotfiles and logs that we don't want to commit
+npm-debug.log
+.DS_Store
+
+# Ignore generated files
+*.bundle.*
